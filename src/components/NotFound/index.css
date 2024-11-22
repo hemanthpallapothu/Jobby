@@ -1,0 +1,33 @@
+.not-found-view {
+  background-color: #121212;
+  height: 100vh;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.not-found-image {
+  height: 250px;
+  width: 250px;
+}
+
+.not-found-title {
+  color: #f1f5f9;
+  font-size: 20px;
+  font-family: roboto;
+}
+
+.not-found-paragraph {
+  color: #cbd5e1;
+  font-size: 15px;
+  font-family: roboto;
+}
+
+@media screen and (min-width: 767px) {
+  .not-found-image {
+    height: 450px;
+    width: 450px;
+  }
+}

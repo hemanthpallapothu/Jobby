@@ -1,0 +1,104 @@
+.job-details-bg-container {
+  background-color: #000000;
+  height: 100vh;
+  background-size: cover;
+  padding: 25px;
+}
+
+.job-details-company-logo {
+  height: 70px;
+  width: 70px;
+  margin-right: 10px;
+}
+
+.job-details-card-container {
+  background-color: #272727;
+  border-radius: 8px;
+  padding: 25px;
+}
+
+.job-details-card-container-alinement {
+  display: flex;
+  flex-direction: row;
+}
+
+.job-details-review-container-alinement {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.job-details-review-icon {
+  color: #fbbf24;
+}
+
+.job-details-title {
+  color: #cbd5e1;
+  font-size: 15px;
+  font-family: roboto;
+}
+
+.job-details-review {
+  color: #cbd5e1;
+  font-size: 15px;
+  font-family: roboto;
+  padding-left: 10px;
+}
+
+.job-details-alinement-1 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.job-details-alinement-2 {
+  display: flex;
+  flex-direction: row;
+}
+
+.icon {
+  color: #cbd5e1;
+  margin-right: 10px;
+}
+
+.icon-text {
+  color: #cbd5e1;
+  font-size: 15px;
+  font-family: roboto;
+}
+
+.job-details-alinement {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-right: 10px;
+  margin-top: 10px;
+}
+
+.description-heading {
+  color: #cbd5e1;
+  font-family: roboto;
+  font-size: 25px;
+}
+
+.description {
+  color: #cbd5e1;
+  font-family: roboto;
+  font-size: 15px;
+}
+
+.skills-heading {
+  color: #cbd5e1;
+  font-family: roboto;
+  font-size: 25px;
+}
+
+.visit-button {
+  background-color: transparent;
+  border: 0px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  text-decoration: none;
+}

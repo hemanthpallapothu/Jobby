@@ -1,0 +1,131 @@
+.job-card-container {
+  background-color: #272727;
+  padding: 25px;
+  margin-bottom: 10px;
+}
+
+.company-logo-image {
+  height: 70px;
+  width: 70px;
+}
+
+.title {
+  color: #cbd5e1;
+  font-size: 15px;
+  font-family: roboto;
+  padding-left: 10px;
+}
+
+.title-review-container-alinement {
+  padding: 25px;
+  height: 100px;
+  width: 300px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.title-review-alinement {
+  height: 90px;
+  display: flex;
+  flex-direction: column;
+}
+
+.review-container-alinement {
+  width: 100px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.star-icon {
+  color: #fbbf24;
+}
+
+.review {
+  color: #cbd5e1;
+  font-size: 15px;
+  font-family: roboto;
+  padding-left: 10px;
+}
+
+.location-container-alinement {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-left: 25px;
+}
+
+.location-icon {
+  color: #cbd5e1;
+  margin-right: 10px;
+}
+
+.location {
+  color: #cbd5e1;
+  font-family: roboto;
+  font-size: 15px;
+}
+
+.employment-type-container-alinement {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-left: 25px;
+}
+
+.employment-type-icon {
+  color: #cbd5e1;
+  margin-right: 10px;
+}
+
+.employment-type {
+  color: #cbd5e1;
+  font-family: roboto;
+  font-size: 15px;
+}
+
+.employment-type-location-alinement {
+  display: flex;
+  flex-direction: row;
+}
+
+.job-details-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.package-per-annum {
+  color: #cbd5e1;
+  font-family: roboto;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.description {
+  color: #cbd5e1;
+  font-family: roboto;
+  font-size: 25px;
+}
+
+.description-text {
+  color: #cbd5e1;
+  font-family: roboto;
+  font-size: 20px;
+}
+
+.nav-link {
+  text-decoration: none;
+}
+
+@media screen and (min-width: 767px) {
+  .job-card-container {
+    background-color: #272727;
+    width: 100%;
+    padding: 25px;
+    margin-top: 10px;
+  }
+}
