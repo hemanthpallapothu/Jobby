@@ -17,6 +17,7 @@ hr {
 }
 
 .employment-type-list {
+  width: 500px;
   list-style-type: none;
   padding-left: 0px;
 }
@@ -67,6 +68,64 @@ hr {
   background-color: transparent;
   border: 0px;
   padding: 0px;
+}
+
+.failure-view-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.failure-view-text {
+  color: #ffffff;
+  font-size: 25px;
+  font-family: roboto;
+}
+
+.failure-view-paragraph {
+  color: #64748b;
+  font-size: 15px;
+  font-family: roboto;
+}
+
+.failure-view-retry {
+  background-color: #4f46e5;
+  border: 0px;
+  color: #ffffff;
+  font-size: 10px;
+  font-weight: bold;
+  border-radius: 2px;
+  height: 25px;
+  width: 70px;
+}
+
+.inprogress-container {
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.no-jobs-container {
+  height: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.no-jobs-text {
+  color: #ffffff;
+  font-size: 25px;
+  font-family: roboto;
+}
+
+.no-jobs-paragraph {
+  color: #64748b;
+  font-size: 15px;
+  font-family: roboto;
 }
 
 @media screen and (min-width: 767px) {

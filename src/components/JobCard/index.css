@@ -1,5 +1,6 @@
 .job-card-container {
   background-color: #272727;
+  width: 450px;
   padding: 25px;
   margin-bottom: 10px;
 }
@@ -127,5 +128,11 @@
     width: 100%;
     padding: 25px;
     margin-top: 10px;
+  }
+  .job-card-container {
+    background-color: #272727;
+    width: 800px;
+    padding: 25px;
+    margin-bottom: 10px;
   }
 }

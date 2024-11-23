@@ -1,6 +1,5 @@
 .job-details-bg-container {
   background-color: #000000;
-  height: 100vh;
   background-size: cover;
   padding: 25px;
 }
@@ -101,4 +100,93 @@
   align-items: center;
   justify-content: space-between;
   text-decoration: none;
+}
+
+.skills-container {
+  flex-wrap: wrap;
+  padding-left: 0px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.job-details-inporgress-container {
+  background-color: #000000;
+  height: 100vh;
+  background-size: cover;
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.job-details-failure-view-container {
+  background-color: #000000;
+  height: 100vh;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.job-details-failure-view-text {
+  color: #ffffff;
+  font-size: 25px;
+  font-family: roboto;
+}
+
+.job-details-failure-view-paragraph {
+  color: #64748b;
+  font-size: 15px;
+  font-family: roboto;
+}
+
+.job-details-failure-view-retry {
+  background-color: #4f46e5;
+  border: 0px;
+  color: #ffffff;
+  font-size: 10px;
+  font-weight: bold;
+  border-radius: 2px;
+  height: 25px;
+  width: 70px;
+}
+
+.life-at-company-heading {
+  color: #cbd5e1;
+  font-family: roboto;
+  font-size: 25px;
+}
+
+.life-at-company-container {
+  padding-left: 0px;
+
+  display: flex;
+  flex-direction: row;
+}
+
+.life-at-company-text {
+  color: #cbd5e1;
+  font-family: roboto;
+  font-size: 20px;
+}
+
+.similar-jobs-container {
+  padding-left: 0px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.description-heading-vist-btn-alinment {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.location-color {
+  color: #cbd5e1;
 }

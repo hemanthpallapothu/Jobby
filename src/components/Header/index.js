@@ -15,11 +15,14 @@ const Header = props => {
   }
   return (
     <div className="navbar-bg-container">
-      <img
-        alt="website logo"
-        className="nav-bar-logo"
-        src="https://assets.ccbp.in/frontend/react-js/logo-img.png"
-      />
+      <Link to="/">
+        <img
+          alt="website logo"
+          className="nav-bar-logo"
+          src="https://assets.ccbp.in/frontend/react-js/logo-img.png"
+        />
+      </Link>
+
       <div className="nav-items-alinement">
         <AiFillHome className="nav-bar-item" />
         <BsFillBriefcaseFill className="nav-bar-item" />

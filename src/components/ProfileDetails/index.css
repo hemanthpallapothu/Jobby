@@ -1,10 +1,9 @@
 .profile-bg-container {
   background-image: url('https://assets.ccbp.in/frontend/react-js/profile-bg.png');
   height: 250px;
-  width: 350px;
+  width: 400px;
   background-size: cover;
   padding: 25px;
-  border-radius: 15px;
 }
 
 .profile-name {
@@ -51,6 +50,5 @@
     height: 250px;
     background-size: cover;
     padding: 25px;
-    border-radius: 15px;
   }
 }

@@ -1,6 +1,6 @@
 import {Component} from 'react'
 import {IoSearchOutline} from 'react-icons/io5'
-
+import Loader from 'react-loader-spinner'
 import Cookies from 'js-cookie'
 
 import Header from '../Header'
@@ -84,7 +84,7 @@ class Jobs extends Component {
   }
 
   onSearchJob = event => {
-    this.setState({searchJob: event.target.value}, this.onGetJobs)
+    this.setState({searchJob: event.target.value})
   }
 
   onClickSearchButton = () => {
@@ -96,8 +96,8 @@ class Jobs extends Component {
     const {employmentType, salaryRange, searchedJob} = this.state
     this.setState({apiStatus: apiStatusConstants.inProgress})
     const jwtToken = Cookies.get('jwt_token')
-    const api = `https://apis.ccbp.in/jobs?employment_type=${employmentType.join()}&minimum_package=${salaryRange}&search=${searchedJob}
-`
+    const api = `https://apis.ccbp.in/jobs?employment_type=${employmentType.join()}&minimum_package=${salaryRange}&search=${searchedJob}`
+
     const options = {
       headers: {
         Authorization: `Bearer ${jwtToken}`,
@@ -127,8 +127,71 @@ class Jobs extends Component {
     }
   }
 
-  render() {
+  renderSuccessView = () => {
     const {jobsList} = this.state
+    if (jobsList.length === 0) {
+      return this.renderNoJobsFound()
+    }
+    return jobsList.map(eachItem => (
+      <JobCard key={eachItem.id} jobDetails={eachItem} />
+    ))
+  }
+
+  renderFailureView = () => (
+    <div className="failure-view-container">
+      <img
+        alt="failure view"
+        src="https://assets.ccbp.in/frontend/react-js/failure-img.png"
+      />
+      <h1 className="failure-view-text">Oops! Something Went Wrong</h1>
+      <p className="failure-view-paragraph">
+        We cannot seem to find the page you are looking for.
+      </p>
+      <button
+        type="button"
+        className="failure-view-retry"
+        onClick={this.onGetJobs}
+      >
+        Retry
+      </button>
+    </div>
+  )
+
+  renderInprogressView = () => (
+    <div className="inprogress-container" data-testid="loader">
+      <Loader type="ThreeDots" color="#ffffff" height="50" width="50" />
+    </div>
+  )
+
+  renderNoJobsFound = () => (
+    <div className="no-jobs-container">
+      <img
+        alt="no jobs"
+        src="https://assets.ccbp.in/frontend/react-js/no-jobs-img.png"
+      />
+      <h1 className="no-jobs-text">No Jobs Found</h1>
+      <p className="no-jobs-paragraph">
+        We could not find any jobs. Try other filters.
+      </p>
+    </div>
+  )
+
+  renderJobs = () => {
+    const {apiStatus} = this.state
+    switch (apiStatus) {
+      case apiStatusConstants.success:
+        return this.renderSuccessView()
+      case apiStatusConstants.failure:
+        return this.renderFailureView()
+      case apiStatusConstants.inProgress:
+        return this.renderInprogressView()
+      default:
+        return null
+    }
+  }
+
+  render() {
+    const {searchJob} = this.state
     return (
       <>
         <Header />
@@ -170,14 +233,13 @@ class Jobs extends Component {
                 type="button"
                 className="search-button"
                 onClick={this.onClickSearchButton}
+                value={searchJob}
+                data-testid="searchButton"
               >
                 <IoSearchOutline className="search-icon" />
               </button>
             </div>
-
-            {jobsList.map(eachItem => (
-              <JobCard key={eachItem.id} jobDetails={eachItem} />
-            ))}
+            {this.renderJobs()}
           </ul>
         </div>
       </>

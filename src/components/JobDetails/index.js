@@ -1,11 +1,14 @@
 import {Component} from 'react'
 import Cookies from 'js-cookie'
+import Loader from 'react-loader-spinner'
+
 import {AiFillStar} from 'react-icons/ai'
 import {HiLocationMarker, HiMailOpen} from 'react-icons/hi'
 import {BiLinkExternal} from 'react-icons/bi'
 
 import Header from '../Header'
-import Skills from '../Skills'
+import SkillsCard from '../SkillsCard'
+import SimilarJobCard from '../SimilarJobCard'
 import './index.css'
 
 const apiStatusConstants = {
@@ -90,7 +93,7 @@ class JobDetails extends Component {
     }
   }
 
-  render() {
+  renderSuccessView = () => {
     const {updatedJobDetails, similarJobs} = this.state
     const {
       companyLogoUrl,
@@ -102,59 +105,120 @@ class JobDetails extends Component {
       rating,
       title,
       skills,
+      lifeAtCompany,
     } = updatedJobDetails
-    console.log(skills)
-
+    console.log(similarJobs)
     return (
-      <div>
-        <Header />
-        <div className="job-details-bg-container">
-          <div className="job-details-card-container">
-            <div className="job-details-card-container-alinement">
-              <img
-                alt=""
-                src={companyLogoUrl}
-                className="job-details-company-logo"
-              />
-              <div>
-                <h1 className="job-details-title">{title}</h1>
-                <div className="job-details-review-container-alinement">
-                  <AiFillStar className="job-details-review-icon" />
-                  <p className="job-details-review ">{rating}</p>
-                </div>
+      <div className="job-details-bg-container">
+        <div className="job-details-card-container">
+          <div className="job-details-card-container-alinement">
+            <img
+              alt="job details company logo"
+              src={companyLogoUrl}
+              className="job-details-company-logo"
+            />
+            <div>
+              <h1 className="job-details-title">{title}</h1>
+              <div className="job-details-review-container-alinement">
+                <AiFillStar className="job-details-review-icon" />
+                <p className="job-details-review ">{rating}</p>
               </div>
             </div>
-            <div className="job-details-alinement-1 ">
-              <div className="job-details-alinement-2">
-                <div className="job-details-alinement">
-                  <HiLocationMarker className="icon" />
-                  <p className="icon-text">{location}</p>
-                </div>
-                <div className="job-details-alinement">
-                  <HiMailOpen className="icon" />
-                  <p className="icon-text">{employmentType}</p>
-                </div>
+          </div>
+          <div className="job-details-alinement-1 ">
+            <div className="job-details-alinement-2">
+              <div className="job-details-alinement">
+                <HiLocationMarker className="icon" />
+                <p className="icon-text">{location}</p>
               </div>
-              <div>
-                <p className="icon-text ">{packagePerAnnum}</p>
+              <div className="job-details-alinement">
+                <HiMailOpen className="icon" />
+                <p className="icon-text">{employmentType}</p>
               </div>
             </div>
-            <hr />
-
+            <div>
+              <p className="icon-text ">{packagePerAnnum}</p>
+            </div>
+          </div>
+          <hr />
+          <div className="description-heading-vist-btn-alinment ">
             <h1 className="description-heading">Description</h1>
             <a className="visit-button" href={companyWebsiteUrl}>
               Visit
               <BiLinkExternal />
             </a>
-            <p className="description">{jobDescription}</p>
-            <h1 className="life-at-company-heading">Life At Company</h1>
-            <ul>
-              {Skills.map(eachItem => (
-                <Skills eachSkills={eachItem} />
-              ))}
-            </ul>
           </div>
+
+          <p className="description">{jobDescription}</p>
+          <h1 className="skills-heading">Skills</h1>
+          <ul className="skills-container">
+            {skills.map(eachSkill => (
+              <SkillsCard key={eachSkill.name} skillDetails={eachSkill} />
+            ))}
+          </ul>
+          <h1 className="life-at-company-heading">Life at Company</h1>
+          <ul className="life-at-company-container ">
+            <p className="life-at-company-text">{lifeAtCompany.description}</p>
+            <img alt="life at company" src={lifeAtCompany.imageUrl} />
+          </ul>
         </div>
+        <h1>Similar Jobs</h1>
+        <ul className="similar-jobs-container">
+          {similarJobs.map(eachJob => (
+            <SimilarJobCard key={eachJob.id} jobDetails={eachJob} />
+          ))}
+        </ul>
+      </div>
+    )
+  }
+
+  renderInprogressView = () => (
+    <div className="job-details-inporgress-container" data-testid="loader">
+      <Loader type="ThreeDots" color="#ffffff" height="50" width="50" />
+    </div>
+  )
+
+  renderFailureView = () => (
+    <div className="job-details-failure-view-container">
+      <img
+        alt="failure view"
+        src="https://assets.ccbp.in/frontend/react-js/failure-img.png"
+      />
+      <h1 className="job-details-failure-view-text">
+        Oops! Something Went Wrong
+      </h1>
+      <p className="job-details-failure-view-paragraph">
+        We cannot seem to find the page you are looking for.
+      </p>
+      <button
+        type="button"
+        className="job-details-failure-view-retry"
+        onClick={this.getJobDetails}
+      >
+        Retry
+      </button>
+    </div>
+  )
+
+  renderJobDetails = () => {
+    const {apiStatus} = this.state
+    switch (apiStatus) {
+      case apiStatusConstants.success:
+        return this.renderSuccessView()
+      case apiStatusConstants.failure:
+        return this.renderFailureView()
+      case apiStatusConstants.inProgress:
+        return this.renderInprogressView()
+      default:
+        return null
+    }
+  }
+
+  render() {
+    return (
+      <div>
+        <Header />
+        {this.renderJobDetails()}
       </div>
     )
   }

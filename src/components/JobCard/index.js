@@ -23,7 +23,7 @@ const JobCard = props => {
         <div className="job-card-container">
           <div className="title-review-container-alinement">
             <img
-              alt={title}
+              alt="company logo"
               src={companyLogoUrl}
               className="company-logo-image"
             />
@@ -50,7 +50,7 @@ const JobCard = props => {
           </div>
 
           <hr />
-          <h1 className="description">Descrption</h1>
+          <h1 className="description">Description</h1>
           <p className="description-text">{jobDescription}</p>
         </div>
       </li>

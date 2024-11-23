@@ -53,7 +53,7 @@ class ProfileDetails extends Component {
     const {name, profileImageUrl, shortBio} = profileData
     return (
       <div className="profile-bg-container">
-        <img alt="" src={profileImageUrl} />
+        <img alt="profile" src={profileImageUrl} />
         <h1 className="profile-name">{name}</h1>
         <p>{shortBio}</p>
       </div>
@@ -61,7 +61,7 @@ class ProfileDetails extends Component {
   }
 
   onRenderInprogress = () => (
-    <div className="loader-container" data-testid="loader">
+    <div className="loader-container">
       <Loader type="ThreeDots" color="#ffffff" height="50" width="50" />
     </div>
   )
